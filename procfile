@@ -1,1 +1,2 @@
-web: gunicorn proj.wsgi:application --log-file -
+release: python3 manage.py makemigrations && python3 manage.py migrate --run-syncdb
+web: gunicorn proj.wsgi --log-file -
