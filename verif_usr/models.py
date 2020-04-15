@@ -11,6 +11,5 @@ class user(models.Model):
     phone_no=models.CharField(max_length=15)
     fav_gnr_writing=models.CharField(max_length=128)
     email=models.CharField(max_length=128)
-    otp = models.IntegerField(blank=True, default=0)
     password=models.CharField(max_length=30,default="")
     ready=models.BooleanField(default=False)

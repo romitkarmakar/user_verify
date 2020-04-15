@@ -10,10 +10,17 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
+EMAIL_USE_TLS= True
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_HOST_USER='yourmail'
+EMAIL_HOST_PASSWORD='mail_psswd'
+EMAIL_PORT= 587
+
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+template_dir=os.path.join(BASE_DIR,'templates')
 
 
 # Quick-start development settings - unsuitable for production
@@ -55,7 +62,7 @@ ROOT_URLCONF = 'proj.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [template_dir],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -100,6 +107,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# email
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
@@ -119,3 +128,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
